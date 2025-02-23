@@ -1,0 +1,541 @@
+:root {
+  color-scheme: light dark;
+  
+    --font-style: normal;
+    --font-variant: normal;
+    --font-weight: 500;
+    --font-stretch: normal;
+    --font-size: 16px;
+    --line-height: 1.5;
+    --font-family: "sans-serif";
+  /* font-style font-variant font-weight font-stretch font-size/line-height font-family */
+  --font: var(--font-style) var(--font-variant) var(--font-weight) var(--font-stretch) var(--font-size) / var(--line-height) var(--font-family);
+  --letter-spacing: 0.060em;
+  
+  --base-color: light-dark(oklch(0.35 0.02 197.52), oklch(0.78 0.02 197.52));
+  --link--color: light-dark(oklch(0.45 0.13 279.25), oklch(0.76 0.13 279.25));
+  
+  /*background-color background-image background-repeat background-position*/
+  --background-color: light-dark(oklch(0.97 0 0), oklch(0.25 0 0));
+  --disabled--background-color: light-dark(oklch(0.87 0 0), oklch(0.37 0 0));
+  
+  --border-color: oklch(0.7  0.02 197.52);
+  --shadow-color: oklch(0.54 0.02 197.52 / 0.35);
+  --focus--color: oklch(0.39 0.02 197.52 / 0.1);
+  
+  --controls--min-block-size: 1.75rem;
+  --cast-shadow: 0 1px 3px 1px var(--shadow-color);
+  --focus--box-shadow: 0 0 0 .25rem var(--focus--color);
+  
+  --border-radius: .175rem;
+  /*border-inline-size border-style border-color*/
+  --input--border: 1px solid var(--border-color);
+  --moz-input--paddings: .25em .25em .125em;
+  --moz-input--select-paddings: .375em .125em .325em;
+  
+  --input--background-color: light-dark(oklch(0.99 0 0), oklch(0.35 0 0));
+  
+  --btn--font-size: inherit;
+  --btn--line-height: 1.5;
+  --btn--font-color: var(--base-color);
+  --btn--font: normal 400 var(--btn--font-size)/var(--btn--line-height) var(--font-family);
+  --btn--background-color: light-dark(oklch(0.96 0 0), oklch(0.3 0 0));
+  --btn--paddings: .375em 1em .25em;
+  --moz-btn-paddings: .375em 1em .25em;
+  --btn--borders-width: 1px;
+  --btn--border-style: solid;
+  --btn--border-color: var(--border-color);
+  --btn--borders-radius: .5em;
+  --btn--cast-shadow: var(--cast-shadow);
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+*:focus,
+*:focus-visible {
+  outline: 2px solid var(--focus--color);
+}
+
+html {
+  font: var(--font);
+    /*font-size: var(--font-size);*/
+  -webkit-text-size-adjust: 100%;
+}
+
+body {
+  color: var(--base-color);
+  background-color: var(--background-color);
+  letter-spacing: var(--letter-spacing);
+  line-height: var(--line-height);
+  margin: 0;
+  padding: 1rem;
+}
+
+main {
+  display: block;
+}
+
+h1 {
+  /*font-size: clamp(1.75rem, calc(1.75rem + .75vw), 2.5rem);*/
+  font-size: clamp(1.75rem, calc(1.75rem + .25vw), 2.5rem);
+}
+
+h2 {
+  /*font-size: clamp(1.625rem, calc(1.625rem + .75vw), 2.25rem);*/
+  font-size: clamp(1.625rem, calc(1.625rem + .25vw), 2.25rem);
+}
+
+h3 {
+  /*font-size: clamp(1.5rem, calc(1.5rem + .5vw), 2rem);*/
+  font-size: clamp(1.5rem, calc(1.5rem + .25vw), 2rem);
+}
+
+h4 {
+  /*font-size: clamp(1.375rem, calc(1.375rem + .5vw), 1.75rem);*/
+  font-size: clamp(1.375rem, calc(1.375rem + .25vw), 1.75rem);
+}
+
+h5 {
+  font-size: clamp(1.25rem, calc(1.25rem + .25vw), 1.5rem);
+}
+
+h6 {
+  font-size: clamp(1.125rem, calc(1.125rem + .25vw), 1.25rem);
+}
+
+h1, h2, h3, h4, h5, h6 {
+  line-height: 1.25em;
+  margin: 2em 0 1.25em ;
+  margin: 2.5rem 0 1.25rem ;
+}
+
+ul, ol {
+  padding-left: 1em;
+}
+
+fieldset {
+  border: var(--input--border);
+  padding: 0.5em;
+}
+
+fieldset label {
+  margin-inline-end: 1em;
+}
+
+  legend {
+    box-sizing: border-box;
+    color: inherit;
+    display: table;
+    max-inline-size: 100%;
+    padding: 0; /* 3 */
+    white-space: normal;
+  }
+
+details {
+  display: block;
+}
+
+  summary {
+    display: list-item;
+  }
+
+pre {
+  font-family: monospace, monospace;
+  font-size: 1em;
+}
+
+summary + dl {
+  margin-block-start: 0;
+}
+
+hr {
+  border: 1px solid var(--border-color);
+  box-sizing: content-box;
+  block-size: 0;
+  color: inherit;
+  overflow: visible;
+  margin: .5em 0;
+}
+
+:where(a[href]) {
+  color: var(--link--color);
+}
+
+:where(a:focus, a:hover) {
+  filter: brightness(110%);
+}
+
+:where(a:visited) {
+  filter: brightness(.9);
+}
+
+abbr[title] {
+  border-bottom: none;
+  -webkit-text-decoration: underline dotted;
+  text-decoration: underline dotted;
+}
+
+audio,
+video {
+  display: inline-block;
+}
+
+audio:not([controls]) {
+  display: none;
+  block-size: 0;
+}
+
+b,
+strong {
+  font-weight: bolder;
+}
+
+code,
+kbd,
+samp {
+  font-family: monospace, monospace;
+  font-size: 1em;
+  line-height: 1.125;
+}
+
+small {
+  font-size: 80%;
+}
+
+sub,
+sup {
+  font-size: 75%;
+  line-height: 0;
+  position: relative;
+  vertical-align: baseline;
+}
+
+sub {
+  bottom: -0.25em;
+}
+
+sup {
+  top: -0.5em;
+}
+
+img {
+  border-style: none;
+}
+
+button,
+input,
+optgroup,
+select,
+textarea {
+  border: var(--input--border);
+  font-family: inherit;
+  font-size: 100%;
+  line-height: 1.5;
+  margin: 0;
+  min-block-size: var(--controls--min-block-size);
+  padding: .25em .25em .125em;
+}
+
+button,
+input,
+select {
+  text-transform: none;
+}
+
+button,
+input {
+  overflow: visible;
+}
+
+input[disabled] {
+  background-color: var(--disabled--background-color);
+}
+  
+button,
+[type="button"],
+[type="reset"],
+[type="submit"],
+.btn {
+  cursor: pointer;
+  
+  font-size: var(--btn--font-size);
+  line-height: var(--btn--line-height);
+  color: var(--btn--font-color, );
+  
+  background-color: var(--btn--background-color, revert);
+  
+  border: 0 var(--btn--border-style) var(--btn--border-color, initial);
+    border-width: var(--btn--borders-width, 1px);
+  border-radius: var(--btn--borders-radius);
+  
+  box-shadow: var(--btn--cast-shadow, );
+  
+  
+  min-block-size: var(--controls--min-block-size);
+  
+  position: relative;
+  
+  padding: var(--btn--paddings);
+  text-align: center;
+  text-decoration: none;
+  vertical-align: middle;
+  
+  -webkit-appearance: button;
+  -moz-appearance: button;
+  appearance: button;
+  
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  user-select: none;
+  
+  :where(&:active):not(:disabled) {
+    scale: .98;
+  }
+  
+  &:disabled {
+    background-color: var(--disabled--background-color);
+  }
+}
+
+button:disabled,
+[type="button"]:disabled,
+[type="reset"]:disabled,
+[type="submit"]:disabled {
+  color: revert;
+}
+
+button::-moz-focus-inner,
+[type="button"]::-moz-focus-inner,
+[type="reset"]::-moz-focus-inner,
+[type="submit"]::-moz-focus-inner {
+  border-style: none;
+}
+
+button:-moz-focusring,
+[type="button"]:-moz-focusring,
+[type="reset"]:-moz-focusring,
+[type="submit"]:-moz-focusring {
+  outline: 1px dotted ButtonText;
+}
+
+progress {
+  display: inline-block;
+  vertical-align: baseline;
+}
+
+select {
+  min-inline-size: 1.7em;
+  padding: .5em .125em .25em;
+}
+
+select optgroup {
+  border: none;
+  padding-left: 0;
+}
+
+select optgroup option {
+  padding-left: .5em;
+}
+
+textarea {
+  overflow: auto;
+  vertical-align: top;
+}
+
+[type=color] {
+  background: inherit;
+  padding: .25em;
+  min-height: 2rem;
+}
+
+[type="checkbox"],
+[type="radio"] {
+  box-sizing: border-box;
+  min-block-size: initial;
+  padding: 0;
+}
+
+[type="date"],
+[type="datetime-local"],
+[type="month"],
+[type="week"],
+[type="time"] {
+  padding: .125em .25em;
+}
+
+[type="number"]::-webkit-inner-spin-button,
+[type="number"]::-webkit-outer-spin-button {
+  block-size: auto;
+}
+
+[type="search"] {
+  -webkit-appearance: textfield;
+}
+
+[type="search"]::-webkit-search-decoration {
+  -webkit-appearance: none;
+}
+
+[type="file"] {
+  padding: 0 .125em 0 0;
+}
+
+::file-selector-button,
+::-webkit-file-upload-button {
+  -webkit-appearance: button;
+  font: inherit;
+  padding: .125em .25em;
+  margin: -1px .125em -1px -1px;
+}
+
+::-webkit-inner-spin-button,
+::-webkit-outer-spin-button {
+  block-size: auto;
+}
+
+::-webkit-input-placeholder {
+  color: inherit;
+  opacity: 0.5;
+}
+
+::-webkit-search-decoration,
+::-webkit-file-upload-button {
+  -webkit-appearance: button;
+  font: inherit;
+}
+
+::-moz-focus-inner {
+  border: 0;
+}
+
+:-moz-focusring {
+  outline: 1px dotted ButtonText;
+}
+
+:-moz-ui-invalid {
+  box-shadow: none;
+}
+
+img {
+  border: 0;
+}
+
+svg:not(:root) {
+  overflow: hidden;
+}
+
+table {
+  text-indent: 0;
+  border-color: inherit;
+}
+
+td {
+  padding: .5em;
+}
+
+dialog {
+  background-color: inherit;
+  border: solid;
+  color: inherit;
+  display: block;
+  block-size: fit-content;
+  left: 0;
+  margin: auto;
+  padding: 1em;
+  position: absolute;
+  right: 0;
+  inline-size: fit-content;
+}
+
+dialog:not(dialog[open], dialog[popover]:popover-open) {
+  display: none;
+  pointer-events: none;
+  opacity: 0;
+}
+
+template {
+  display: none;
+}
+
+[hidden] {
+  display: none;
+}
+
+button,
+[type="button"],
+[type="reset"],
+[type="submit"],
+.btn,
+input,
+optgroup,
+select,
+textarea {
+  &:focus,
+  &:focus-within {
+    box-shadow: var(--focus--box-shadow);
+    outline: 0;
+  }
+}
+
+[type="range"]:focus,
+[type="radio"]:focus {
+  box-shadow: unset;
+}
+
+[type="range"]:focus::-webkit-slider-thumb,
+[type="radio"]:focus::before {
+    content: "";
+    
+    border-radius: 50%;
+    outline: .25rem solid var(--focus--color);
+    
+    height: .8em;
+    width: .8em;
+    
+    display: block;
+}
+
+input,
+textarea,
+select,
+[type="color"] {
+  background-color: var(--input--background-color);
+}
+
+:disabled {
+  cursor: not-allowed;
+}
+
+:where(dl, ol, ul, fieldset, p, details, pre, form, address, blockquote, figure, table):has( + :where(dl, ol, ul, fieldset, p, details, pre, form, address, blockquote, figure, table, nav)) {
+  margin-block-end: 1rem;
+}
+
+:where(button, [type="button"], [type="reset"], [type="submit"], .btn):has( + :is(button, [type="button"], [type="reset"], [type="submit"], .btn)) {
+  margin-inline-end: .25rem;
+  /*float: inline-start;*/
+}
+
+@-moz-document url-prefix() {
+  textarea, [type="email"], [type="number"], [type="password"], [type="search"], [type="tel"], [type="text"], [type="url"], [type="date"], [type="datetime"], [type="datetime-local"], [type="month"], [type="week"], [type="time"], [type="select"] {
+    padding: var(--moz-input--paddings);
+  }
+  
+  select {
+     min-inline-size: 1.5em;
+     padding: var(--moz-input--select-paddings);
+  }
+  
+  button,
+  [type="button"],
+  [type="reset"],
+  [type="submit"],
+  .btn {
+    padding: var(--moz-btn-paddings);
+  }
+}
